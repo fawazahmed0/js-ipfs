@@ -60,7 +60,7 @@ export function createExport ({ repo, preload, codecs }) {
       try {
         const load = makeLoader(repo, writer, { signal: options.signal, timeout: options.timeout }, codecs)
         await walk({ cid, load })
-        writer.close()
+        await writer.close()
       } catch (e) {
         err = e
       }
